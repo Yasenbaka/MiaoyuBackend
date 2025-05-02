@@ -1,0 +1,15 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 1024MB
+  application:
+    name: MiaoyuBackend
+server:
+  port: 28888
+  address: 0.0.0.0
+
+jwt:
+  key: miaoyutechnologyfrontandmanage
+app:
+  password-key: miaoyutechonology

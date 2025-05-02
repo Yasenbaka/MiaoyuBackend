@@ -1,18 +1,27 @@
 package com.miaoyu.backend.api.invoice.controller;
 
 import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.Token;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/invoice")
 public class GetInvoiceController {
+    @Autowired
+    private Token token;
+
     /**获取所有增值税发票实体
      * @return List中包含所有增值税发票实体*/
     @GetMapping("/all")
     public ResponseEntity<JsonTemplate> getAllInvoiceControl(
             @RequestHeader("Authorization") String token
     ) {
+        JsonTemplate payload = this.token.tokenUtil(token);
+        if (payload.getCode() == 1) {
+            return ResponseEntity.status(401).body(payload);
+        }
         return ResponseEntity.ok(null);
     }
 
@@ -24,6 +33,10 @@ public class GetInvoiceController {
             @RequestHeader("Authorization") String token,
             @RequestParam("type") String type
     ) {
+        JsonTemplate payload = this.token.tokenUtil(token);
+        if (payload.getCode() == 1) {
+            return ResponseEntity.status(401).body(payload);
+        }
         return ResponseEntity.ok(null);
     }
 
@@ -35,6 +48,10 @@ public class GetInvoiceController {
             @RequestHeader("Authorization") String token,
             @RequestParam("property") String property
     ) {
+        JsonTemplate payload = this.token.tokenUtil(token);
+        if (payload.getCode() == 1) {
+            return ResponseEntity.status(401).body(payload);
+        }
         return ResponseEntity.ok(null);
     }
 
@@ -46,6 +63,10 @@ public class GetInvoiceController {
             @RequestHeader("Authorization") String token,
             @RequestParam("invoice_id") String invoiceId
     ) {
+        JsonTemplate payload = this.token.tokenUtil(token);
+        if (payload.getCode() == 1) {
+            return ResponseEntity.status(401).body(payload);
+        }
         return ResponseEntity.ok(null);
     }
 }
