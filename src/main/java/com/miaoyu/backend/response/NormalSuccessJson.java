@@ -1,17 +1,17 @@
-package com.miaoyu.backend.preset_response;
+package com.miaoyu.backend.response;
 
-import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.R;
 
 public class NormalSuccessJson {
-    public JsonTemplate normalSuccess(Object data) {
-        JsonTemplate jsonT = new JsonTemplate();
+    public R normalSuccess(Object data) {
+        R jsonT = new R();
         jsonT.setCode(0);
         jsonT.setMessage("成功：Normal success");
         jsonT.setData(jsonT.getMessage());
         return jsonT;
     }
-    public JsonTemplate udusSuccess(int udus) {
-        JsonTemplate jsonT = new JsonTemplate();
+    public R udusSuccess(int udus) {
+        R jsonT = new R();
         jsonT.setCode(0);
         switch (udus) {
             case 1: {

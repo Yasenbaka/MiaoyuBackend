@@ -5,10 +5,10 @@
 *   source来源（token的签发源）*/
 package com.miaoyu.backend.jwt;
 
-import com.miaoyu.backend.preset_response.NormalErrorJson;
-import com.miaoyu.backend.preset_response.NormalSuccessJson;
+import com.miaoyu.backend.response.NormalErrorJson;
+import com.miaoyu.backend.response.NormalSuccessJson;
 import com.miaoyu.backend.service.JwtService;
-import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.R;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -17,14 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.util.Map;
 
 @Service
 public class JwtParser {
     @Autowired
     private JwtService jwtService;
 
-    public JsonTemplate jwtParser(String token, String source) {
+    public R jwtParser(String token, String source) {
         Claims payload;
         SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtService.getKey()));
         try{

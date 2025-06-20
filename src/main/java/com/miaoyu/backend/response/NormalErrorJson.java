@@ -1,17 +1,17 @@
-package com.miaoyu.backend.preset_response;
+package com.miaoyu.backend.response;
 
-import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.R;
 
 public class NormalErrorJson {
-    public JsonTemplate normalError(Object data) {
-        JsonTemplate jsonT = new JsonTemplate();
+    public R normalError(Object data) {
+        R jsonT = new R();
         jsonT.setCode(1);
         jsonT.setMessage("异常：error");
         jsonT.setData(data);
         return jsonT;
     }
-    public JsonTemplate noLogin() {
-        JsonTemplate jsonT = new JsonTemplate();
+    public R noLogin() {
+        R jsonT = new R();
         jsonT.setCode(1);
         jsonT.setMessage("未登录：No login");
         jsonT.setData(jsonT.getMessage());

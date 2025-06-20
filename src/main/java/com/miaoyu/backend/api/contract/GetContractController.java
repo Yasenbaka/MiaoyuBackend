@@ -1,6 +1,6 @@
 package com.miaoyu.backend.api.contract;
 
-import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.R;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ public class GetContractController {
     /**获取所有合同实体
      * @return List包含所有合同的实体*/
     @GetMapping("/all")
-    public ResponseEntity<JsonTemplate> getAllContractControl(
+    public ResponseEntity<R> getAllContractControl(
             @RequestHeader("Authorization") String token
     ) {
         return ResponseEntity.ok(null);
@@ -21,7 +21,7 @@ public class GetContractController {
      * @param property 合同属性
      * @return List包含所有符合条件的合同实体*/
     @GetMapping("/contracts_by_property")
-    public ResponseEntity<JsonTemplate> getContractsByPropertyControl(
+    public ResponseEntity<R> getContractsByPropertyControl(
             @RequestHeader("Authorization") String token,
             @RequestParam("property") String property
     ) {

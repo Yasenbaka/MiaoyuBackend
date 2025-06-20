@@ -1,6 +1,6 @@
 package com.miaoyu.backend.utils;
 
-public class JsonTemplate {
+public class R {
     private int code;
     private String message;
     private Object data;

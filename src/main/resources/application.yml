@@ -5,6 +5,14 @@ spring:
       max-request-size: 1024MB
   application:
     name: MiaoyuBackend
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://miaoyu.asia:51001/miaoyu
+    username: miaoyu
+    password: miaoyu2024
+    driver-class-name: com.mysql.cj.jdbc.Driver
 server:
   port: 28888
   address: 0.0.0.0

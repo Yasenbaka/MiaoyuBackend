@@ -1,6 +1,6 @@
 package com.miaoyu.backend.api.invoice.controller;
 
-import com.miaoyu.backend.utils.JsonTemplate;
+import com.miaoyu.backend.utils.R;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ public class MutualInvoiceController {
      * @param purchaseInvoiceId 成本票的票号
      * @return 绑定是否成功*/
     @GetMapping("/bind_sell_purchase")
-    public ResponseEntity<JsonTemplate> bindingCostProfitInvoiceControl(
+    public ResponseEntity<R> bindingCostProfitInvoiceControl(
             @RequestHeader("Authorization") String token,
             @RequestParam("sell_invoice_id") String sellInvoiceId,
             @RequestParam("purchase_invoice_id") String purchaseInvoiceId
@@ -25,7 +25,7 @@ public class MutualInvoiceController {
      * @param invoiceId 增值税发票的票号
      * @return 解除绑定是否成功*/
     @GetMapping("/unbind_invoice")
-    public ResponseEntity<JsonTemplate> unbindInvoiceControl(
+    public ResponseEntity<R> unbindInvoiceControl(
             @RequestHeader("Authorization") String token,
             @RequestParam("invoice_id") String invoiceId
     ) {
