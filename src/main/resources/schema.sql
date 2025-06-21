@@ -46,3 +46,18 @@ CREATE TABLE IF NOT EXISTS invoice_item (
 
     FOREIGN KEY (invoice_id) REFERENCES invoice(id) ON DELETE CASCADE
 );
+CREATE TABLE IF NOT EXISTS invoice_bind (
+    id VARCHAR(36) PRIMARY KEY ,
+    output_invoice_id VARCHAR(30) NOT NULL ,
+    input_invoice_id VARCHAR(30) NOT NULL ,
+    create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    UNIQUE KEY uk_output_input_invoice_id (output_invoice_id, input_invoice_id),
+
+    INDEX idx_output_invoice_id (output_invoice_id),
+    INDEX idx_input_invoice_id (input_invoice_id),
+
+    FOREIGN KEY (output_invoice_id) REFERENCES invoice(id) ON DELETE CASCADE ,
+    FOREIGN KEY (input_invoice_id) REFERENCES invoice(id) ON DELETE CASCADE
+
+);

@@ -1,4 +1,4 @@
-package com.miaoyu.backend.utils;
+package com.miaoyu.backend.utils.generate;
 
 import java.util.UUID;
 
@@ -29,7 +29,16 @@ public class GenerateUUID {
         }
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUuid36l() {
+        return this.uuid.toString();
+    }
+    public String getUuid36u() {
+        return this.uuid.toString().toUpperCase();
+    }
+    public String getUuid32l() {
+        return this.uuid.toString().replace("-", "");
+    }
+    public String getUuid32u() {
+        return this.uuid.toString().replace("-", "").toUpperCase();
     }
 }

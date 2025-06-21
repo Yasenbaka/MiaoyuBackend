@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan({
-        "com.miaoyu.backend.api.invoice.mapper"
+        "com.miaoyu.backend.invoice.mapper"
 })
 public class MiaoyuBackendApplication {
 

@@ -14,8 +14,8 @@ public class InvoiceItemModel {
     private BigDecimal unit_price;       // 单价
 
     private BigDecimal amount;          // 金额（= 数量×单价）
-    private BigDecimal tax_ate;         // 税率
-    private BigDecimal tax_mount;       // 税额
+    private BigDecimal tax_rate;         // 税率
+    private BigDecimal tax_amount;       // 税额
 
     private String remark;              // 备注（可选）
 
@@ -86,20 +86,20 @@ public class InvoiceItemModel {
         this.amount = amount;
     }
 
-    public BigDecimal getTax_ate() {
-        return tax_ate;
+    public BigDecimal getTax_rate() {
+        return tax_rate;
     }
 
-    public void setTax_ate(BigDecimal tax_ate) {
-        this.tax_ate = tax_ate;
+    public void setTax_rate(BigDecimal tax_rate) {
+        this.tax_rate = tax_rate;
     }
 
-    public BigDecimal getTax_mount() {
-        return tax_mount;
+    public BigDecimal getTax_amount() {
+        return tax_amount;
     }
 
-    public void setTax_mount(BigDecimal tax_mount) {
-        this.tax_mount = tax_mount;
+    public void setTax_amount(BigDecimal tax_amount) {
+        this.tax_amount = tax_amount;
     }
 
     public String getRemark() {

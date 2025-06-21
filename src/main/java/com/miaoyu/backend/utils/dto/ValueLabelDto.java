@@ -1,10 +1,10 @@
-package com.miaoyu.backend.invoice.dto;
+package com.miaoyu.backend.utils.dto;
 
-public class InvoiceValueLabelDto {
+public class ValueLabelDto {
     private String value;
     private String label;
 
-    public InvoiceValueLabelDto(String value, String label) {
+    public ValueLabelDto(String value, String label) {
         this.value = value;
         this.label = label;
     }
