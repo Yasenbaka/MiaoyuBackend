@@ -14,11 +14,15 @@ public class InvoiceItemController {
     @Autowired
     private InvoiceItemService invoiceItemService;
 
+    /**上传发票中产品信息
+     * @param request 产品信息实体*/
     @PostMapping("/upload")
     public ResponseEntity<R> uploadInvoiceItemControl(@RequestBody InvoiceItemModel request) {
         return invoiceItemService.uploadInvoiceService(request);
     }
 
+    /**根据产品ID删除产品信息
+     * @param itemId 产品ID*/
     @DeleteMapping("/delete")
     public ResponseEntity<R> deleteInvoiceItemControl(@RequestParam("item_id") String itemId) {
         return invoiceItemService.deleteInvoiceItemByIdService(itemId);

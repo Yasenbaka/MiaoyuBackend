@@ -12,6 +12,9 @@ public class InvoiceBindController {
     @Autowired
     private InvoiceBindService invoiceBindService;
 
+    /**记录销购双票绑定
+     * @param outputInvoiceId 销项票号
+     * @param inputInvoiceId  购项票号*/
     @GetMapping("/upload")
     public ResponseEntity<R> uploadInvoiceBindControl(
             @RequestParam("output_invoice_id") String outputInvoiceId,
@@ -20,6 +23,8 @@ public class InvoiceBindController {
         return invoiceBindService.uploadInvoiceBindService(outputInvoiceId, inputInvoiceId);
     }
 
+    /**删除销购双票绑定
+     * @param bindId 绑定记录ID*/
     @DeleteMapping("/delete")
     public ResponseEntity<R> deleteInvoiceBindControl(@RequestParam("bind_id") String bindId) {
         return invoiceBindService.deleteInvoiceBindService(bindId);
