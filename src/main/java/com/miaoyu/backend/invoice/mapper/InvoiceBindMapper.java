@@ -19,4 +19,6 @@ public interface InvoiceBindMapper {
     boolean insert(InvoiceBindModel invoiceBindModel);
     @Delete("DELETE FROM invoice_bind WHERE id = #{id}")
     boolean delete(@Param("id") String id);
+    @Delete("DELETE FROM invoice_bind WHERE input_invoice_id = #{request.input_invoice_id} AND output_invoice_id = #{request.output_invoice_id}")
+    boolean deleteByDoubleInvoiceId(@Param("request") InvoiceBindModel request);
 }

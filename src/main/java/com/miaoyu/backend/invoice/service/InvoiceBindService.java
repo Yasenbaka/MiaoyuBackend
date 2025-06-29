@@ -21,6 +21,14 @@ public class InvoiceBindService {
     @Autowired
     private InvoiceBindMapper invoiceBindMapper;
 
+    public ResponseEntity<R> getInvoiceBindListByInvoiceIdService(String invoiceId, InvoicePropertyEnum invoiceProperty) {
+        switch (invoiceProperty) {
+            case INPUT -> ResponseEntity.ok(new ResourceR().resource(true, invoiceBindMapper.selectByInputInvoiceId(invoiceId)));
+            case OUTPUT -> ResponseEntity.ok(new ResourceR().resource(true, invoiceBindMapper.selectByOutputInvoiceId(invoiceId)));
+        }
+        return ResponseEntity.ok(new ResourceR().resource(false, null));
+    }
+
     public ResponseEntity<R> uploadInvoiceBindService(String outputInvoiceId, String inputInvoiceId) {
         InvoicePojo outputInvoice = invoiceMapper.selectById(outputInvoiceId);
         InvoicePojo inputInvoice = invoiceMapper.selectById(inputInvoiceId);
@@ -46,6 +54,14 @@ public class InvoiceBindService {
     public ResponseEntity<R> deleteInvoiceBindService(String bindId) {
         boolean delete = invoiceBindMapper.delete(bindId);
         if (delete) {
+            return ResponseEntity.ok(new UDUR().delete(true));
+        }
+        return ResponseEntity.ok(new UDUR().delete(false));
+    }
+
+    public ResponseEntity<R> deleteInvoiceBindByDoubleInvoiceIdService(InvoiceBindModel request) {
+        boolean b = invoiceBindMapper.deleteByDoubleInvoiceId(request);
+        if (b) {
             return ResponseEntity.ok(new UDUR().delete(true));
         }
         return ResponseEntity.ok(new UDUR().delete(false));
